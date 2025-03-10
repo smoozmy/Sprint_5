@@ -7,3 +7,10 @@ def generate_email():
 
 def generate_password():
     return "".join(random.choices(string.ascii_letters + string.digits, k=8))
+
+def generate_user():
+    return {
+        "username": "Тестовый Пользователь",
+        "email": generate_email(),
+        "password": generate_password()
+    }
