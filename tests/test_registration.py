@@ -1,11 +1,12 @@
-from src import data
+from src.data import REGISTER_URL
 from src.locators import RegistrationLocators, LoginLocators
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class TestRegistration:
     def test_successful_registration(self, driver, user):
-        driver.get(data.REGISTER_URL)
+        driver.get(REGISTER_URL)
+
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
             RegistrationLocators.NAME_INPUT)).send_keys(user.name)
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
@@ -18,9 +19,9 @@ class TestRegistration:
         assert WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
             LoginLocators.LOGIN_TITLE)).text == 'Вход'
 
-
     def test_failed_registration_empty_name(self, driver, user):
-        driver.get(data.REGISTER_URL)
+        driver.get(REGISTER_URL)
+
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
             RegistrationLocators.NAME_INPUT)).send_keys('')
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
@@ -34,7 +35,8 @@ class TestRegistration:
             RegistrationLocators.REGISTRATION_TITLE)).text == 'Регистрация'
 
     def test_failed_registration_short_password(self, driver, user):
-        driver.get(data.REGISTER_URL)
+        driver.get(REGISTER_URL)
+
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
             RegistrationLocators.NAME_INPUT)).send_keys(user.name)
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(

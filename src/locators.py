@@ -18,3 +18,7 @@ class RegistrationLocators:
 
 class ConstructorLocators:
     LOGIN_PAGE_BUTTON = By.XPATH, '//button[text()="Войти в аккаунт"]'
+    ORDER_BUTTON = By.XPATH, '//button[text()="Оформить заказ"]'
+
+class ForgotPasswordLocators:
+    LOGIN_PAGE_BUTTON = By.XPATH, '//a[text()="Войти"]'

@@ -1,9 +1,13 @@
 from dataclasses import dataclass
 
+from src.locators import ConstructorLocators
+
 BASE_URL = 'https://stellarburgers.nomoreparties.site'
 
 LOGIN_URL = f'{BASE_URL}/login'
 REGISTER_URL = f'{BASE_URL}/register'
+CONSTRUCTOR_URL = BASE_URL
+FORGOT_PASSWORD_URL = f'{BASE_URL}/forgot-password'
 
 
 @dataclass
