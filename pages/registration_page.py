@@ -10,6 +10,7 @@ class RegistrationPage(BasePage):
     EMAIL_INPUT = (By.XPATH, '(//input[@name="name"])[2]')
     PASSWORD_INPUT = (By.XPATH, '//input[@name="Пароль"]')
     REGISTER_BUTTON = (By.XPATH, '//button[text()="Зарегистрироваться"]')
+    ERROR_MESSAGE = (By.XPATH, '//p[text()="Некорректный пароль"]')
 
     def open(self):
         self.driver.get(self.URL)
@@ -19,3 +20,6 @@ class RegistrationPage(BasePage):
         self.enter_text(self.EMAIL_INPUT, email)
         self.enter_text(self.PASSWORD_INPUT, password)
         self.click(self.REGISTER_BUTTON)
+
+    def get_error_message(self):
+        return self.get_element(self.ERROR_MESSAGE).text
