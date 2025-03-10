@@ -1,8 +1,6 @@
 import pytest
 from selenium import webdriver
-
-from utils.generators import generate_user
-
+from src.generators import generate_user
 
 @pytest.fixture
 def driver():

@@ -1,27 +1,48 @@
-from pages.login_page import LoginPage
-from pages.registration_page import RegistrationPage
-
+from src import data
+from src.locators import RegistrationLocators, LoginLocators
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class TestRegistration:
     def test_successful_registration(self, driver, user):
-        page = RegistrationPage(driver)
-        page.open()
-        page.register(user['username'], user['email'], user['password'])
+        driver.get(data.REGISTER_URL)
+        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+            RegistrationLocators.NAME_INPUT)).send_keys(user.name)
+        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+            RegistrationLocators.EMAIL_INPUT)).send_keys(user.email)
+        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+            RegistrationLocators.PASSWORD_INPUT)).send_keys(user.password)
+        WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
+            RegistrationLocators.REGISTER_BUTTON)).click()
 
-        assert driver.current_url == LoginPage.URL
+        assert WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+            LoginLocators.LOGIN_TITLE)).text == 'Вход'
+
 
     def test_failed_registration_empty_name(self, driver, user):
-        page = RegistrationPage(driver)
-        page.open()
-        page.register('', user['email'], user['password'])
+        driver.get(data.REGISTER_URL)
+        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+            RegistrationLocators.NAME_INPUT)).send_keys('')
+        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+            RegistrationLocators.EMAIL_INPUT)).send_keys(user.email)
+        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+            RegistrationLocators.PASSWORD_INPUT)).send_keys(user.password)
+        WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
+            RegistrationLocators.REGISTER_BUTTON)).click()
 
-        assert driver.current_url == RegistrationPage.URL
+        assert WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+            RegistrationLocators.REGISTRATION_TITLE)).text == 'Регистрация'
 
     def test_failed_registration_short_password(self, driver, user):
-        page = RegistrationPage(driver)
-        page.open()
-        page.register(user['username'], user['email'], '12345')
+        driver.get(data.REGISTER_URL)
+        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+            RegistrationLocators.NAME_INPUT)).send_keys(user.name)
+        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+            RegistrationLocators.EMAIL_INPUT)).send_keys(user.email)
+        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+            RegistrationLocators.PASSWORD_INPUT)).send_keys('12345')
+        WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
+            RegistrationLocators.REGISTER_BUTTON)).click()
 
-        error_text = page.get_error_message()
-
-        assert error_text == 'Некорректный пароль'
+        assert WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
+            RegistrationLocators.ERROR_MESSAGE)).text == 'Некорректный пароль'
