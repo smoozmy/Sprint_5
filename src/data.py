@@ -8,6 +8,7 @@ LOGIN_URL = f'{BASE_URL}/login'
 REGISTER_URL = f'{BASE_URL}/register'
 CONSTRUCTOR_URL = BASE_URL
 FORGOT_PASSWORD_URL = f'{BASE_URL}/forgot-password'
+PROFILE_URL = f'{BASE_URL}/account'
 
 
 @dataclass
