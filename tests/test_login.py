@@ -10,9 +10,9 @@ class TestLogin:
         driver.get(LOGIN_URL)
 
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            LoginLocators.EMAIL_INPUT)).send_keys(TEST_USER["email"])
+            LoginLocators.LOGIN_EMAIL_INPUT)).send_keys(TEST_USER["email"])
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            LoginLocators.PASSWORD_INPUT)).send_keys(TEST_USER["password"])
+            LoginLocators.LOGIN_PASSWORD_INPUT)).send_keys(TEST_USER["password"])
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
             LoginLocators.LOGIN_BUTTON)).click()
 
@@ -22,22 +22,17 @@ class TestLogin:
     def test_login_from_registration_page(self, driver):
         driver.get(REGISTER_URL)
 
-        login_button = WebDriverWait(driver, 5).until(EC.presence_of_element_located(
-            RegistrationLocators.LOGIN_PAGE_BUTTON))
-        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", login_button)
-
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
             RegistrationLocators.LOGIN_PAGE_BUTTON)).click()
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            LoginLocators.EMAIL_INPUT)).send_keys(TEST_USER["email"])
+            LoginLocators.LOGIN_EMAIL_INPUT)).send_keys(TEST_USER["email"])
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            LoginLocators.PASSWORD_INPUT)).send_keys(TEST_USER["password"])
+            LoginLocators.LOGIN_PASSWORD_INPUT)).send_keys(TEST_USER["password"])
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
             LoginLocators.LOGIN_BUTTON)).click()
 
         assert WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
             ConstructorLocators.ORDER_BUTTON)).text == 'Оформить заказ'
-
 
     def test_login_from_constructor_page(self, driver):
         driver.get(CONSTRUCTOR_URL)
@@ -45,9 +40,9 @@ class TestLogin:
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
             ConstructorLocators.LOGIN_PAGE_BUTTON)).click()
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            LoginLocators.EMAIL_INPUT)).send_keys(TEST_USER["email"])
+            LoginLocators.LOGIN_EMAIL_INPUT)).send_keys(TEST_USER["email"])
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            LoginLocators.PASSWORD_INPUT)).send_keys(TEST_USER["password"])
+            LoginLocators.LOGIN_PASSWORD_INPUT)).send_keys(TEST_USER["password"])
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
             LoginLocators.LOGIN_BUTTON)).click()
 
@@ -60,9 +55,9 @@ class TestLogin:
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
             ForgotPasswordLocators.LOGIN_PAGE_BUTTON)).click()
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            LoginLocators.EMAIL_INPUT)).send_keys(TEST_USER["email"])
+            LoginLocators.LOGIN_EMAIL_INPUT)).send_keys(TEST_USER["email"])
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            LoginLocators.PASSWORD_INPUT)).send_keys(TEST_USER["password"])
+            LoginLocators.LOGIN_PASSWORD_INPUT)).send_keys(TEST_USER["password"])
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
             LoginLocators.LOGIN_BUTTON)).click()
 

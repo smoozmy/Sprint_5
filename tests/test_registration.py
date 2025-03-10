@@ -8,11 +8,11 @@ class TestRegistration:
         driver.get(REGISTER_URL)
 
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            RegistrationLocators.NAME_INPUT)).send_keys(user.name)
+            RegistrationLocators.REGISTER_NAME_INPUT)).send_keys(user.name)
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            RegistrationLocators.EMAIL_INPUT)).send_keys(user.email)
+            RegistrationLocators.REGISTER_EMAIL_INPUT)).send_keys(user.email)
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            RegistrationLocators.PASSWORD_INPUT)).send_keys(user.password)
+            RegistrationLocators.REGISTER_PASSWORD_INPUT)).send_keys(user.password)
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
             RegistrationLocators.REGISTER_BUTTON)).click()
 
@@ -23,11 +23,11 @@ class TestRegistration:
         driver.get(REGISTER_URL)
 
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            RegistrationLocators.NAME_INPUT)).send_keys('')
+            RegistrationLocators.REGISTER_NAME_INPUT)).send_keys('')
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            RegistrationLocators.EMAIL_INPUT)).send_keys(user.email)
+            RegistrationLocators.REGISTER_EMAIL_INPUT)).send_keys(user.email)
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            RegistrationLocators.PASSWORD_INPUT)).send_keys(user.password)
+            RegistrationLocators.REGISTER_PASSWORD_INPUT)).send_keys(user.password)
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
             RegistrationLocators.REGISTER_BUTTON)).click()
 
@@ -38,11 +38,11 @@ class TestRegistration:
         driver.get(REGISTER_URL)
 
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            RegistrationLocators.NAME_INPUT)).send_keys(user.name)
+            RegistrationLocators.REGISTER_NAME_INPUT)).send_keys(user.name)
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            RegistrationLocators.EMAIL_INPUT)).send_keys(user.email)
+            RegistrationLocators.REGISTER_EMAIL_INPUT)).send_keys(user.email)
         WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
-            RegistrationLocators.PASSWORD_INPUT)).send_keys('12345')
+            RegistrationLocators.REGISTER_PASSWORD_INPUT)).send_keys('12345')
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
             RegistrationLocators.REGISTER_BUTTON)).click()
 
