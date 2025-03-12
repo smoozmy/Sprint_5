@@ -1,7 +1,5 @@
 from dataclasses import dataclass
 
-from src.locators import ConstructorLocators
-
 BASE_URL = 'https://stellarburgers.nomoreparties.site'
 
 LOGIN_URL = f'{BASE_URL}/login'

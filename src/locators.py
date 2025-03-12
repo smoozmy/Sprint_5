@@ -19,8 +19,11 @@ class RegistrationLocators:
 class ConstructorLocators:
     LOGIN_PAGE_BUTTON = By.XPATH, '//button[text()="Войти в аккаунт"]'  # Кнопка перехода к экрану авторизации
     ORDER_BUTTON = By.XPATH, '//button[text()="Оформить заказ"]'        # Кнопка 'Оформить заказ'
-    # PROFILE_PAGE_BUTTON = By.XPATH, '//a[@href="/account"]'             # Кнопка перехода к экрану профиля
-    LOGO_STELLAR_BURGER = By.XPATH, '//div[contains(@class, "logo")]'
+    LOGO_STELLAR_BURGER = By.XPATH, '//div[contains(@class, "logo")]'   # Лого
+    TAB_CURRENT = By.XPATH, '//div[contains(@class, "tab_type_current")]' # Активная вкладка
+    TAB_BREAD = By.XPATH, '//span[contains(text(), "Булки")]/..'        # Вкладка 'Булки'
+    TAB_SAUCE = By.XPATH, '//span[contains(text(), "Соусы")]/..'        # Вкладка 'Соусы'
+    TAB_TOPPING = By.XPATH, '//span[contains(text(), "Начинки")]/..'    # Вкладка 'Начинки'
 
 class ForgotPasswordLocators:
     LOGIN_PAGE_BUTTON = By.XPATH, '//a[text()="Войти"]'                 # Кнопка перехода к экрану авторизации
