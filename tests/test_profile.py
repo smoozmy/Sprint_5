@@ -60,7 +60,7 @@ class TestProfile:
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
             ProfileLocators.PROFILE_PAGE_BUTTON)).click()
 
-        # Переход в конструктор
+        # Выход из аккаунта, переход в конструктор
         WebDriverWait(driver, 5).until(EC.element_to_be_clickable(
             ProfileLocators.LOGOUT_TAB_BUTTON)).click()
 
